@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tourly - Travel agancy</title>
+  <title>Toba - Travelling</title>
 
   <!-- 
     - favicon
@@ -16,6 +16,40 @@
     - custom css link
   -->
   <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/more-destinations.css">
+
+  <!-- 
+    - language switcher style
+  -->
+  <style>
+    .language-switcher {
+      display: flex;
+      align-items: center;
+      margin-left: 20px;
+    }
+    .language-btn {
+      background: none;
+      border: none;
+      color: var(--white);
+      cursor: pointer;
+      font-size: 14px;
+      padding: 5px 8px;
+      opacity: 0.8;
+      transition: 0.3s;
+    }
+    .language-btn.active {
+      opacity: 1;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+    .language-btn:hover {
+      opacity: 1;
+    }
+    .language-divider {
+      color: var(--white);
+      margin: 0 5px;
+    }
+  </style>
 
   <!-- 
     - google font link
@@ -49,7 +83,7 @@
           <div class="wrapper">
             <p class="helpline-title">For Further Inquires :</p>
 
-            <p class="helpline-number">+01 (123) 4567 90</p>
+            <p class="helpline-number">+(62) 1370836055</p>
           </div>
 
         </a>
@@ -59,6 +93,12 @@
         </a>
 
         <div class="header-btn-group">
+
+          <div class="language-switcher">
+            <button class="language-btn active" data-lang="en">EN</button>
+            <span class="language-divider">|</span>
+            <button class="language-btn" data-lang="id">ID</button>
+          </div>
 
           <button class="search-btn" aria-label="Search">
             <ion-icon name="search"></ion-icon>
@@ -161,9 +201,12 @@
       -->
 
       <section class="hero" id="home">
+        <video autoplay muted loop>
+          <source src="./assets/images/toba.mp4" type="video/mp4">
+        </video>
+        
         <div class="container">
-
-          <h2 class="h1 hero-title">Journey to explore world</h2>
+          <h2 class="h1 hero-title">Journey to explore Toba Caldera Park</h2>
 
           <p class="hero-text">
             Ac mi duis mollis. Sapiente? Scelerisque quae, penatibus? Suscipit class corporis nostra rem quos
@@ -176,7 +219,6 @@
 
             <button class="btn btn-secondary">Book now</button>
           </div>
-
         </div>
       </section>
 
@@ -191,7 +233,7 @@
       <section class="tour-search">
         <div class="container">
 
-          <form action="" class="tour-search-form">
+          <form id="tour-search-form" class="tour-search-form">
 
             <div class="input-wrapper">
               <label for="destination" class="input-label">Search Destination*</label>
@@ -218,7 +260,7 @@
               <input type="date" name="checkout" id="checkout" required class="input-field">
             </div>
 
-            <button type="submit" class="btn btn-secondary">Inquire now</button>
+            <button type="submit" class="btn btn-secondary" id="inquire-btn">Inquire now</button>
 
           </form>
 
@@ -252,7 +294,7 @@
               <div class="popular-card">
 
                 <figure class="card-img">
-                  <img src="./assets/images/popular-1.jpg" alt="San miguel, italy" loading="lazy">
+                  <img src="./assets/images/toba.jpeg" alt="Toba Caldera Park, samosir" loading="lazy">
                 </figure>
 
                 <div class="card-content">
@@ -266,11 +308,11 @@
                   </div>
 
                   <p class="card-subtitle">
-                    <a href="#">Italy</a>
+                    <a href="#">Samosir</a>
                   </p>
 
                   <h3 class="h3 card-title">
-                    <a href="#">San miguel</a>
+                    <a href="#">Toba Caldera Park</a>
                   </h3>
 
                   <p class="card-text">
@@ -286,7 +328,7 @@
               <div class="popular-card">
 
                 <figure class="card-img">
-                  <img src="./assets/images/popular-2.jpg" alt="Burj khalifa, dubai" loading="lazy">
+                  <img src="./assets/images/orangutan.jpeg" alt="Bukit Lawang, langkat" loading="lazy">
                 </figure>
 
                 <div class="card-content">
@@ -300,11 +342,11 @@
                   </div>
 
                   <p class="card-subtitle">
-                    <a href="#">Dubai</a>
+                    <a href="#">Langkat</a>
                   </p>
 
                   <h3 class="h3 card-title">
-                    <a href="#">Burj khalifa</a>
+                    <a href="#">Bukit Lawang</a>
                   </h3>
 
                   <p class="card-text">
@@ -320,7 +362,7 @@
               <div class="popular-card">
 
                 <figure class="card-img">
-                  <img src="./assets/images/popular-3.jpg" alt="Kyoto temple, japan" loading="lazy">
+                  <img src="./assets/images/Berastagi.jpeg" alt="Berastagi, karo" loading="lazy">
                 </figure>
 
                 <div class="card-content">
@@ -334,11 +376,11 @@
                   </div>
 
                   <p class="card-subtitle">
-                    <a href="#">Japan</a>
+                    <a href="#">Karo</a>
                   </p>
 
                   <h3 class="h3 card-title">
-                    <a href="#">Kyoto temple</a>
+                    <a href="#">Berastagi</a>
                   </h3>
 
                   <p class="card-text">
@@ -350,9 +392,165 @@
               </div>
             </li>
 
+            <!-- Hidden destinations that will be shown when "More destination" is clicked -->
+            <li class="hidden-destination" style="display: none;">
+              <div class="popular-card">
+                <figure class="card-img">
+                  <img src="./assets/images/Sipiso piso Waterfall_ North Sumatra.jpeg" alt="Sipiso-piso Waterfall, Karo" loading="lazy">
+                </figure>
+                <div class="card-content">
+                  <div class="card-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                  <p class="card-subtitle">
+                    <a href="#">Karo</a>
+                  </p>
+                  <h3 class="h3 card-title">
+                    <a href="#">Sipiso-piso Waterfall</a>
+                  </h3>
+                  <p class="card-text">
+                    Spectacular waterfall with a height of 120 meters surrounded by lush greenery.
+                  </p>
+                </div>
+              </div>
+            </li>
+
+            <li class="hidden-destination" style="display: none;">
+              <div class="popular-card">
+                <figure class="card-img">
+                  <img src="./assets/images/Tourists interact with the elephants in Tangkahan….jpeg" alt="Tangkahan, Langkat" loading="lazy">
+                </figure>
+                <div class="card-content">
+                  <div class="card-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                  <p class="card-subtitle">
+                    <a href="#">Langkat</a>
+                  </p>
+                  <h3 class="h3 card-title">
+                    <a href="#">Tangkahan</a>
+                  </h3>
+                  <p class="card-text">
+                    Hidden paradise with elephant sanctuary and pristine rivers in the rainforest.
+                  </p>
+                </div>
+              </div>
+            </li>
+
+            <li class="hidden-destination" style="display: none;">
+              <div class="popular-card">
+                <figure class="card-img">
+                  <img src="./assets/images/Haranggaol.jpeg" alt="Haranggaol, Simalungun" loading="lazy">
+                </figure>
+                <div class="card-content">
+                  <div class="card-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                  <p class="card-subtitle">
+                    <a href="#">Simalungun</a>
+                  </p>
+                  <h3 class="h3 card-title">
+                    <a href="#">Haranggaol</a>
+                  </h3>
+                  <p class="card-text">
+                    Beautiful lakeside area with stunning views of Lake Toba and surrounding mountains.
+                  </p>
+                </div>
+              </div>
+            </li>
+
+            <li class="hidden-destination" style="display: none;">
+              <div class="popular-card">
+                <figure class="card-img">
+                  <img src="./assets/images/air terjun.jpeg" alt="Mursala, sibolga" loading="lazy">
+                </figure>
+                <div class="card-content">
+                  <div class="card-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                  <p class="card-subtitle">
+                    <a href="#">Sibolga</a>
+                  </p>
+                  <h3 class="h3 card-title">
+                    <a href="#">Mursala</a>
+                  </h3>
+                  <p class="card-text">
+                    Peaceful village on the western shore of Lake Toba with traditional Batak houses.
+                  </p>
+                </div>
+              </div>
+            </li>
+
+            <li class="hidden-destination" style="display: none;">
+              <div class="popular-card">
+                <figure class="card-img">
+                  <img src="./assets/images/At Lake Toba in Parapat, Indonesia.jpeg" alt="Parapat, Simalungun" loading="lazy">
+                </figure>
+                <div class="card-content">
+                  <div class="card-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                  <p class="card-subtitle">
+                    <a href="#">Simalungun</a>
+                  </p>
+                  <h3 class="h3 card-title">
+                    <a href="#">Parapat</a>
+                  </h3>
+                  <p class="card-text">
+                    Gateway town to Lake Toba with beautiful resorts and panoramic lake views.
+                  </p>
+                </div>
+              </div>
+            </li>
+
+            <li class="hidden-destination" style="display: none;">
+              <div class="popular-card">
+                <figure class="card-img">
+                  <img src="./assets/images/Pulau Lihaga di Sulawesi Utara.jpeg" alt="kalimatung, sibolga" loading="lazy">
+                </figure>
+                <div class="card-content">
+                  <div class="card-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                  <p class="card-subtitle">
+                    <a href="#">Sibolga</a>
+                  </p>
+                  <h3 class="h3 card-title">
+                    <a href="#">kalimatung island</a>
+                  </h3>
+                  <p class="card-text">
+                    Village with spectacular views of Lake Toba and the starting point for Sipiso-piso hikes.
+                  </p>
+                </div>
+              </div>
+            </li>
           </ul>
 
-          <button class="btn btn-primary">More destintion</button>
+          <button class="btn btn-primary" id="more-destinations-btn">More destination</button>
 
         </div>
       </section>
@@ -368,9 +566,9 @@
       <section class="package" id="package">
         <div class="container">
 
-          <p class="section-subtitle">Popular Packeges</p>
+          <p class="section-subtitle">Popular Packages</p>
 
-          <h2 class="h2 section-title">Checkout Our Packeges</h2>
+          <h2 class="h2 section-title">Checkout Our Packages</h2>
 
           <p class="section-text">
             Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantium.
@@ -418,7 +616,7 @@
                       <div class="meta-box">
                         <ion-icon name="location"></ion-icon>
 
-                        <p class="text">Malaysia</p>
+                        <p class="text">Toba</p>
                       </div>
                     </li>
 
@@ -492,7 +690,7 @@
                       <div class="meta-box">
                         <ion-icon name="location"></ion-icon>
 
-                        <p class="text">Malaysia</p>
+                        <p class="text">Bukit Lawang</p>
                       </div>
                     </li>
 
@@ -566,7 +764,7 @@
                       <div class="meta-box">
                         <ion-icon name="location"></ion-icon>
 
-                        <p class="text">Malaysia</p>
+                        <p class="text">Berastagi</p>
                       </div>
                     </li>
 
@@ -604,7 +802,7 @@
 
           </ul>
 
-          <button class="btn btn-primary">View All Packages</button>
+          <button class="btn btn-primary" id="view-all-packages-btn">View All Packages</button>
 
         </div>
       </section>
@@ -690,7 +888,7 @@
             </p>
           </div>
 
-          <button class="btn btn-secondary">Contact Us !</button>
+          <a href="https://wa.me/6281370836055?text=Hi%20there!%20I'm%20interested%20in%20your%20travel%20packages." class="btn btn-secondary" id="whatsapp-btn">Contact Us !</a>
 
         </div>
       </section>
@@ -738,7 +936,7 @@
             <li class="contact-item">
               <ion-icon name="call-outline"></ion-icon>
 
-              <a href="tel:+01123456790" class="contact-link">+01 (123) 4567 90</a>
+              <a href="tel:+01123456790" class="contact-link">+(62) 1370836055</a>
             </li>
 
             <li class="contact-item">
@@ -778,7 +976,7 @@
       <div class="container">
 
         <p class="copyright">
-          &copy; 2022 <a href="">codewithsadee</a>. All rights reserved
+          &copy; 2025 <a href="">okiramadani</a>. All rights reserved
         </p>
 
         <ul class="footer-bottom-list">
@@ -821,7 +1019,182 @@
   <!-- 
     - custom js link
   -->
+  <script src="./assets/js/translations.js"></script>
   <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/more-destinations.js"></script>
+  <script src="./assets/js/all-packages.js"></script>
+  <script src="./assets/js/currency-switcher.js"></script>
+  <script src="./assets/js/whatsapp-contact.js"></script>
+  <script src="./assets/js/form-to-whatsapp.js"></script>
+
+  <!-- 
+    - language switcher script
+  -->
+  <script>
+    // Execute immediately without waiting for DOMContentLoaded
+    (function() {
+      // Function to update text content based on selected language
+      function updateContent(lang) {
+        document.documentElement.lang = lang;
+        
+        // Update active state on buttons
+        document.querySelectorAll('.language-btn').forEach(btn => {
+          if (btn.getAttribute('data-lang') === lang) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
+        });
+        
+        // Apply translations directly to elements
+        applyTranslations(lang);
+      }
+      
+      // Function to apply translations to elements
+      function applyTranslations(lang) {
+        // Header
+        updateElementText('.helpline-title', 'helpline-title', lang);
+        
+        // Navigation
+        const navLinks = document.querySelectorAll('.navbar-link');
+        updateElementText(navLinks[0], 'home', lang);
+        updateElementText(navLinks[1], 'about-us', lang);
+        updateElementText(navLinks[2], 'destination', lang);
+        updateElementText(navLinks[3], 'packages', lang);
+        updateElementText(navLinks[4], 'gallery', lang);
+        updateElementText(navLinks[5], 'contact-us', lang);
+        
+        // Book Now button
+        updateElementText('.header-bottom .btn-primary', 'book-now', lang);
+        
+        // Hero section
+        updateElementText('.hero-title', 'hero-title', lang);
+        updateElementText('.hero-text', 'hero-text', lang);
+        const heroBtns = document.querySelectorAll('.hero .btn');
+        updateElementText(heroBtns[0], 'learn-more', lang);
+        updateElementText(heroBtns[1], 'book-now-btn', lang);
+        
+        // Tour search
+        const searchLabels = document.querySelectorAll('.input-label');
+        updateElementText(searchLabels[0], 'search-destination', lang);
+        updateElementText(searchLabels[1], 'pax-number', lang);
+        updateElementText(searchLabels[2], 'checkin-date', lang);
+        updateElementText(searchLabels[3], 'checkout-date', lang);
+        
+        updateElementPlaceholder('#destination', 'enter-destination', lang);
+        updateElementPlaceholder('#people', 'no-of-people', lang);
+        updateElementText('.tour-search-form .btn', 'inquire-now', lang);
+        
+        // Popular section
+        updateElementText('.popular .section-subtitle', 'uncover-place', lang);
+        updateElementText('.popular .section-title', 'popular-destination', lang);
+        updateElementText('.popular .section-text', 'popular-text', lang);
+        updateElementText('.popular .btn-primary', 'more-destination', lang);
+        
+        // Package section
+        updateElementText('.package .section-subtitle', 'popular-packages', lang);
+        updateElementText('.package .section-title', 'checkout-packages', lang);
+        updateElementText('.package .section-text', 'package-text', lang);
+        
+        document.querySelectorAll('.price span').forEach(span => {
+          updateElementText(span, 'per-person', lang);
+        });
+        
+        document.querySelectorAll('.package-card .btn').forEach(btn => {
+          updateElementText(btn, 'book-now', lang);
+        });
+        
+        updateElementText('.package .btn-primary', 'view-all-packages', lang);
+        
+        // Gallery section
+        updateElementText('.gallery .section-subtitle', 'photo-gallery', lang);
+        updateElementText('.gallery .section-title', 'photos-from-travellers', lang);
+        updateElementText('.gallery .section-text', 'gallery-text', lang);
+        
+        // CTA section
+        updateElementText('.cta .section-subtitle', 'call-to-action', lang);
+        updateElementText('.cta .section-title', 'ready-for-travel', lang);
+        updateElementText('.cta .section-text', 'cta-text', lang);
+        updateElementText('.cta .btn-secondary', 'contact-us-btn', lang);
+        
+        // Footer
+        updateElementText('.footer-text', 'footer-text', lang);
+        updateElementText('.contact-title', 'contact-title', lang);
+        updateElementText('.contact-text', 'contact-text', lang);
+        updateElementText('.form-text', 'form-text', lang);
+        updateElementText('.footer-form .btn', 'subscribe', lang);
+        
+        const footerLinks = document.querySelectorAll('.footer-bottom-link');
+        updateElementText(footerLinks[0], 'privacy-policy', lang);
+        updateElementText(footerLinks[1], 'term-condition', lang);
+        updateElementText(footerLinks[2], 'faq', lang);
+      }
+      
+      // Helper function to update element text
+      function updateElementText(selector, key, lang) {
+        const el = typeof selector === 'string' ? document.querySelector(selector) : selector;
+        if (el && translations[lang] && translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      }
+      
+      // Helper function to update input placeholder
+      function updateElementPlaceholder(selector, key, lang) {
+        const el = document.querySelector(selector);
+        if (el && translations[lang] && translations[lang][key]) {
+          el.placeholder = translations[lang][key];
+        }
+      }
+      
+      // Add click event to language buttons
+      document.querySelectorAll('.language-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const lang = this.getAttribute('data-lang');
+          updateContent(lang);
+          // Trigger a custom event for other scripts to listen to
+          const event = new CustomEvent('languageChanged', { detail: { language: lang } });
+          document.dispatchEvent(event);
+        });
+      });
+      
+      // Initialize with default language
+      document.addEventListener('DOMContentLoaded', function() {
+        updateContent('en');
+      });
+    })();
+  </script>
+  
+  <!-- 
+    - More destinations functionality
+  -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const moreBtn = document.getElementById('more-destinations-btn');
+      const hiddenDestinations = document.querySelectorAll('.hidden-destination');
+      let destinationsVisible = false;
+      
+      moreBtn.addEventListener('click', function() {
+        if (!destinationsVisible) {
+          // Show hidden destinations
+          hiddenDestinations.forEach(destination => {
+            destination.style.display = 'block';
+            // Add animation class if needed
+            destination.classList.add('fade-in');
+          });
+          moreBtn.textContent = 'Show less';
+          destinationsVisible = true;
+        } else {
+          // Hide destinations
+          hiddenDestinations.forEach(destination => {
+            destination.style.display = 'none';
+            destination.classList.remove('fade-in');
+          });
+          moreBtn.textContent = 'More destination';
+          destinationsVisible = false;
+        }
+      });
+    });
+  </script>
 
   <!-- 
     - ionicon link
