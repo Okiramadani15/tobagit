@@ -27,14 +27,14 @@ const translations = {
     "inquire-now": "Inquire now",
     
     // Popular section
-    "uncover-place": "Uncover place",
-    "popular-destination": "Popular destination",
+    "uncover-place": "Uncover Places",
+    "popular-destination": "Popular Destinations",
     "popular-text": "Discover the natural wonders and cultural treasures of North Sumatra. From the breathtaking views of Lake Toba to wildlife adventures in the jungle, these destinations offer unforgettable experiences for every traveler.",
-    "more-destination": "More destintion",
+    "more-destination": "More Destinations",
     
     // Package section
-    "popular-packages": "Popular Packeges",
-    "checkout-packages": "Checkout Our Packeges",
+    "popular-packages": "Popular Packages",
+    "checkout-packages": "Checkout Our Packages",
     "package-text": "Explore the natural beauty and cultural richness of North Sumatra with our curated tour packages. Each journey offers a unique experience, from serene lakes to lush jungles and cool highlands.",
     "per-person": "/ per person",
     "view-all-packages": "View All Packages",
@@ -46,7 +46,7 @@ const translations = {
     
     // CTA section
     "call-to-action": "Call To Action",
-    "ready-for-travel": "Ready For Unforgatable Travel. Remember Us!",
+    "ready-for-travel": "Ready For Unforgettable Travel. Remember Us!",
     "cta-text": "Whether you're planning your next adventure or a relaxing getaway, we're here to make it extraordinary. Let us help you create memories that last a lifetime.",
     "contact-us-btn": "Contact Us !",
     
@@ -73,7 +73,7 @@ const translations = {
     
     // Hero section
     "hero-title": "Jelajahi Toba Caldera Park",
-    "hero-text": "Danau Toba, mahakarya alam yang menyatukan keagungan alam, budaya yang kaya, dan ketenangan yang abadi.Temukan keajaiban di setiap sudut Toba Caldera Park.",
+    "hero-text": "Danau Toba, mahakarya alam yang menyatukan keagungan alam, budaya yang kaya, dan ketenangan yang abadi. Temukan keajaiban di setiap sudut Toba Caldera Park.",
     "learn-more": "Pelajari lebih lanjut",
     "book-now-btn": "Pesan sekarang",
     
