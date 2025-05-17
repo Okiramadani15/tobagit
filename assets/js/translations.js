@@ -89,13 +89,13 @@ const translations = {
     // Popular section
     "uncover-place": "Temukan tempat",
     "popular-destination": "Destinasi populer",
-    "popular-text": "Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantium. Sit ornare mollitia tenetur, aptent.",
+    "popular-text": "Temukan keajaiban alam dan kekayaan budaya Sumatera Utara. Mulai dari pemandangan menakjubkan Danau Toba hingga petualangan satwa liar di hutan, destinasi ini menawarkan pengalaman tak terlupakan bagi setiap wisatawan.",
     "more-destination": "Destinasi lainnya",
     
     // Package section
     "popular-packages": "Paket Populer",
     "checkout-packages": "Lihat Paket Kami",
-    "package-text": "Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantium. Sit ornare mollitia tenetur, aptent.",
+    "package-text": "Jelajahi keindahan alam dan kekayaan budaya Sumatera Utara melalui paket tur pilihan kami. Setiap perjalanan menawarkan pengalaman unik, mulai dari danau yang tenang hingga hutan yang rimbun dan dataran tinggi yang sejuk.",
     "per-person": "/ per orang",
     "view-all-packages": "Lihat Semua Paket",
     
