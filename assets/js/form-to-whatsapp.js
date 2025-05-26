@@ -1,7 +1,7 @@
 // Form to WhatsApp functionality
 document.addEventListener('DOMContentLoaded', function() {
   const form = document.getElementById('tour-search-form');
-  const phoneNumber = '6281370836055'; // WhatsApp number without + sign
+  const phoneNumber = '6289530892375'; // WhatsApp number without + sign
   
   // Get current language
   function getCurrentLanguage() {

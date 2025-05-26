@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const message = `Hello, I would like to book the "${packageName}" package ${packagePrice}`;
         
         // Replace with your actual WhatsApp number
-        const phoneNumber = '6281234567890'; // Change this to your WhatsApp number
+        const phoneNumber = '62 895-3089-2375'; // Change this to your WhatsApp number
         
         // Create WhatsApp URL
         const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const message = 'Hello, I would like to book a tour package';
       
       // Replace with your actual WhatsApp number
-      const phoneNumber = '6281234567890'; // Change this to your WhatsApp number
+      const phoneNumber = '62 895-3089-2375'; // Change this to your WhatsApp number
       
       // Create WhatsApp URL
       const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
